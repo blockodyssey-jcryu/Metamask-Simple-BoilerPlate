@@ -1,12 +1,18 @@
-import logo from "./logo.svg";
 import "./App.css";
-import ConnectUI from "./pages/ConnectUI";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/ConnectUI";
+import NotInstalled from "./pages/NotInstalled";
+import MobileDetector from "./utils/mobileDetector";
 
 function App() {
+    MobileDetector.initialize();
     return (
-        <div className="App">
-            <ConnectUI />
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/notInstalled" element={<NotInstalled />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
